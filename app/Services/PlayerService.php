@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Player;
 use Illuminate\Http\Request;
@@ -34,5 +35,11 @@ class PlayerService extends Service
 	{
 		$user = auth()->user();
 		return response()->json(['user' => $user]);
+	}
+
+	public function paginate()
+	{
+		$users = Player::paginate();
+		return response()->json(['users' => $users]);
 	}
 }

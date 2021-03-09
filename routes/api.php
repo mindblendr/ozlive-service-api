@@ -30,6 +30,7 @@ Route::prefix('admin')->group(function () {
 
 Route::prefix('player')->group(function () {
 	Route::post('/create', [PlayerController::class, 'create']);
+	Route::get('/', [PlayerController::class, 'index']);
 	Route::group(['middleware' => 'auth:player'], function () {
 		Route::get('/me', [PlayerController::class, 'me']);
 	});

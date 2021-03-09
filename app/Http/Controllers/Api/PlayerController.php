@@ -29,4 +29,9 @@ class PlayerController extends Controller
 	{
 		return $this->playerService->me($request);
 	}
+
+	public function index()
+	{
+		return $this->playerService->paginate();
+	}
 }
