@@ -37,6 +37,12 @@ Route::prefix('player')->group(function () {
 	Route::post('/login', [PlayerController::class, 'login']);
 });
 
+Route::get('/', function () {
+	return response()->json([
+		'test' => 1
+	]);
+});
+
 Route::domain('{subdomain}.' . config('app.short_url'))->group(function () {
 	Route::get('/check', function ($subdomain) {
 		return $subdomain;
